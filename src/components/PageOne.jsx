@@ -36,9 +36,9 @@ export default function PageOne() {
           transition={{ duration: 1.5, type: "spring", delay: 0.5 }}
           className="absolute top-4 md:top-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center drop-shadow-[0_4px_10px_rgba(255,255,255,0.6)]"
         >
-          <div className="w-28 h-28 md:w-36 md:h-36 rounded-full border-[1.5px] border-[#A86D33] flex items-center justify-center bg-white/20 backdrop-blur-sm">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-[0.5px] border-[#cb8941] flex items-center justify-center bg-transparent">
-              <span className="font-cinzel text-5xl md:text-6xl text-[#800000] font-bold mt-1">F<span className="text-[#A86D33] text-4xl mx-1.5">&amp;</span>A</span>
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-[1.5px] border-[#A86D33] flex items-center justify-center bg-white/20 backdrop-blur-sm">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-[0.5px] border-[#cb8941] flex items-center justify-center bg-transparent">
+              <span className="font-cinzel text-3xl md:text-4xl text-[#800000] font-bold mt-1">F<span className="text-[#A86D33] text-2xl mx-1">&amp;</span>A</span>
             </div>
           </div>
         </motion.div>
