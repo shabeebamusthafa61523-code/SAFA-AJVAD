@@ -11,7 +11,7 @@ export default function RSVPModal({ isOpen, onClose }) {
     if (!name.trim()) return;
     
     // Construct WhatsApp message
-    const phone = "919947942011";
+    const phone = "918606224886";
     const message = `Hello! I would like to RSVP for Fathima & Ajwad's Wedding.%0A%0A*Name:* ${name}%0A*Guests:* ${guests}%0A%0ALooking forward to it!`;
     const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
     

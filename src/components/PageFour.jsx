@@ -6,7 +6,7 @@ export default function PageFour({ onRSVPClick }) {
 
   return (
     <section className="scroll-section w-full z-20">
-      <div className="w-full max-w-md mx-auto flex flex-col items-center justify-start min-h-screen text-center px-4 space-y-4 pt-5 pb-10">
+      <div className="w-full max-w-md mx-auto flex flex-col items-center justify-start min-h-screen text-center px-4 space-y-4 pt-5 pb-20">
         
         {/* Venue Card */}
         <div className="w-full px-5 py-6 rounded-[2rem] glass-card shadow-md flex flex-col items-center">
@@ -49,10 +49,10 @@ export default function PageFour({ onRSVPClick }) {
         </div>
 
         {/* Sharing the Happiness Card */}
-        <div className="w-full px-5 py-5 rounded-[2rem] glass-card flex flex-col items-center shadow-md">
-          <p className="font-sans text-[10px] tracking-[0.2em] font-bold text-[#A86D33] uppercase mb-2">Sharing the Happiness</p>
-          <p className="font-sans text-[11px] md:text-xs text-gray-700 leading-relaxed font-bold tracking-wide">
-            C M. Faiz, C Fawaz Azhar,<br/>Mufeeda PK, Baiza Nujoom C
+        <div className="w-full px-4 py-4 rounded-[2rem] glass-card flex flex-col items-center shadow-md">
+          <p className="font-sans text-[9px] tracking-[0.2em] font-bold text-[#A86D33] uppercase mb-1.5">Sharing the Happiness</p>
+          <p className="font-sans text-[9px] md:text-[10px] text-gray-700 font-bold tracking-wide">
+            C M. Faiz, C Fawaz Azhar, Mufeeda PK, Baiza Nujoom C
           </p>
         </div>
 
