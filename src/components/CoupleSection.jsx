@@ -54,7 +54,7 @@ export default function CoupleSection() {
             variants={fadeUp}
             className="text-center glass-panel p-8 rounded-b-full border-b-8 border-gold md:mt-24"
           >
-            <h3 className="font-script text-5xl text-maroon-dark mb-2">Mr. Ajwad Sajavn V</h3>
+            <h3 className="font-script text-5xl text-maroon-dark mb-2">Mr. Ajwad Sajvan V</h3>
             <p className="text-sm font-sans text-maroon-light mb-6 uppercase tracking-wider">The Groom</p>
             <div className="space-y-2 font-serif text-gray-800">
               <p>S/O Mr. Ahammed & Mrs. Muneera Ahammed</p>

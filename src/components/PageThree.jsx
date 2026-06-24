@@ -48,7 +48,7 @@ export default function PageThree() {
 
           {/* Groom Side */}
           <div className="text-gray-700 leading-snug text-[11px] md:text-sm font-serif w-full">
-            <span className="block font-bold text-lg md:text-xl text-[#800000] drop-shadow-sm mb-1">Mr. Ajwad Sajavn V</span>
+            <span className="block font-bold text-lg md:text-xl text-[#800000] drop-shadow-sm mb-1">Mr. Ajwad Sajvan V</span>
             <span className="block font-bold text-gray-900">S/O Mr. Ahammed &amp; Mrs. Muneera Ahammed</span>
             <span className="block text-gray-600 mt-1">Vadakkethil House, Indianoor (P.O),</span>
             <span className="block text-gray-600">Kallada-Kottakal, Malappuram (Dist)</span>

@@ -83,7 +83,7 @@ export default function PageOne() {
             variants={itemRight}
             className="font-pinyon text-[4rem] sm:text-7xl md:text-9xl lg:text-[10rem] text-[#6e0d0d] drop-shadow-[0_4px_25px_rgba(255,255,255,0.8)] z-20 relative text-center leading-tight px-4 whitespace-nowrap"
           >
-            Ajwad Sajavn
+            Ajwad Sajvan
           </motion.h1>
         </motion.div>
 
