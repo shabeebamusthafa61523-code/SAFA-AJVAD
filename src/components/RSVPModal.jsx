@@ -6,17 +6,19 @@ export default function RSVPModal({ onClose }) {
   const [name, setName] = useState('');
   const [guests, setGuests] = useState('1');
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name.trim()) return;
     
-    // Construct WhatsApp message
+    // Construct WhatsApp message (Currently unused since navigation is disabled)
     const phone = "918606224886";
     const message = `Hello! I would like to RSVP for Fathima & Ajwad's Wedding.%0A%0A*Name:* ${name}%0A*Guests:* ${guests}%0A%0ALooking forward to it!`;
     const whatsappUrl = `https://wa.me/${phone}?text=${message}`;
     
-    window.open(whatsappUrl, '_blank');
-    onClose();
+    // window.open(whatsappUrl, '_blank'); // Navigation to WhatsApp removed as requested
+    setIsSubmitted(true);
   };
 
   return (
@@ -39,48 +41,66 @@ export default function RSVPModal({ onClose }) {
           <X size={20} />
         </button>
 
-        <div className="text-center mb-8 mt-2 relative">
-          <h3 className="font-pinyon text-5xl text-[#6e0d0d] mb-2 drop-shadow-sm">Confirm Attendance</h3>
-          <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#cb8941] font-bold mt-2">Thavakkal Convention Centre &middot; July 11</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="flex flex-col">
-            <label className="font-sans text-[10px] uppercase tracking-widest text-[#800000] mb-2 font-bold ml-1">Guest Name</label>
-            <input 
-              type="text" 
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter your full name"
-              className="w-full border border-[#A86D33]/30 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A86D33] focus:ring-1 focus:ring-[#A86D33] transition-all font-serif text-base bg-white/60 backdrop-blur-sm text-gray-800 placeholder-gray-400 shadow-inner"
-            />
+        {isSubmitted ? (
+          <div className="text-center py-6">
+            <motion.div 
+              initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", damping: 15 }}
+              className="w-20 h-20 border-[3px] border-[#A86D33] bg-[#A86D33]/10 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner"
+            >
+              <svg className="w-10 h-10 text-[#A86D33]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+            </motion.div>
+            <h3 className="font-pinyon text-5xl text-[#6e0d0d] mb-4 drop-shadow-sm">See you there!</h3>
+            <p className="font-serif text-gray-700 mb-8 leading-relaxed">Thank you for confirming your presence. We can't wait to celebrate this special day with you.</p>
+            <button onClick={onClose} className="group relative flex w-full items-center justify-center bg-gradient-to-r from-[#A86D33] to-[#cb8941] text-white px-8 py-3 rounded-xl font-sans uppercase tracking-[0.2em] font-bold text-xs shadow-md hover:shadow-lg transition-all duration-300">
+              Close
+            </button>
           </div>
-
-          <div className="flex flex-col">
-            <label className="font-sans text-[10px] uppercase tracking-widest text-[#800000] mb-2 font-bold ml-1">Number of Guests</label>
-            <div className="relative">
-              <select 
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                className="w-full border border-[#A86D33]/30 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A86D33] focus:ring-1 focus:ring-[#A86D33] transition-all font-serif text-base bg-white/60 backdrop-blur-sm text-gray-800 shadow-inner appearance-none"
-              >
-                <option value="1">Just me (1)</option>
-                <option value="2">2 guests</option>
-                <option value="3">3 guests</option>
-                <option value="4">4 guests</option>
-                <option value="5+">5 or more</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#A86D33]">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-              </div>
+        ) : (
+          <>
+            <div className="text-center mb-8 mt-2 relative">
+              <h3 className="font-pinyon text-5xl text-[#6e0d0d] mb-2 drop-shadow-sm">Confirm Attendance</h3>
+              <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#cb8941] font-bold mt-2">Thavakkal Convention Centre &middot; July 11</p>
             </div>
-          </div>
 
-          <button type="submit" className="group relative flex w-full items-center justify-center gap-3 bg-gradient-to-r from-[#A86D33] to-[#cb8941] text-white px-8 py-4 mt-8 rounded-xl font-sans uppercase tracking-[0.2em] font-bold text-xs shadow-[0_4px_15px_rgba(168,109,51,0.4)] hover:shadow-[0_6px_25px_rgba(168,109,51,0.6)] hover:-translate-y-0.5 transition-all duration-300">
-            <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" /> Send RSVP via WhatsApp
-          </button>
-        </form>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="flex flex-col">
+                <label className="font-sans text-[10px] uppercase tracking-widest text-[#800000] mb-2 font-bold ml-1">Guest Name</label>
+                <input 
+                  type="text" 
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your full name"
+                  className="w-full border border-[#A86D33]/30 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A86D33] focus:ring-1 focus:ring-[#A86D33] transition-all font-serif text-base bg-white/60 backdrop-blur-sm text-gray-800 placeholder-gray-400 shadow-inner"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="font-sans text-[10px] uppercase tracking-widest text-[#800000] mb-2 font-bold ml-1">Number of Guests</label>
+                <div className="relative">
+                  <select 
+                    value={guests}
+                    onChange={(e) => setGuests(e.target.value)}
+                    className="w-full border border-[#A86D33]/30 rounded-xl px-4 py-3 focus:outline-none focus:border-[#A86D33] focus:ring-1 focus:ring-[#A86D33] transition-all font-serif text-base bg-white/60 backdrop-blur-sm text-gray-800 shadow-inner appearance-none"
+                  >
+                    <option value="1">Just me (1)</option>
+                    <option value="2">2 guests</option>
+                    <option value="3">3 guests</option>
+                    <option value="4">4 guests</option>
+                    <option value="5+">5 or more</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#A86D33]">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" className="group relative flex w-full items-center justify-center gap-3 bg-gradient-to-r from-[#A86D33] to-[#cb8941] text-white px-8 py-4 mt-8 rounded-xl font-sans uppercase tracking-[0.2em] font-bold text-xs shadow-[0_4px_15px_rgba(168,109,51,0.4)] hover:shadow-[0_6px_25px_rgba(168,109,51,0.6)] hover:-translate-y-0.5 transition-all duration-300">
+                <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" /> Send
+              </button>
+            </form>
+          </>
+        )}
       </motion.div>
     </>
   );
