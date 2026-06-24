@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #cb8941;
+  --color-gold-light: #e6b274;
+  --color-maroon: #800000;
+  --color-maroon-dark: #4A0404;
+  
+  --font-sans: 'Montserrat', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-cinzel: 'Cinzel', serif;
+  --font-pinyon: 'Pinyon Script', cursive;
+  --font-alex: 'Alex Brush', cursive;
+  --font-parisienne: 'Parisienne', cursive;
+}
+
+@layer base {
+  body {
+    background-color: #F8F9F5;
+    color: #333333;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .scroll-container {
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-section {
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 2rem 1rem;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #A86D33, #e6b274, #A86D33);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#800000] to-[#6e0d0d] text-white px-6 py-4 rounded-full font-sans font-medium flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_20px_rgba(128,0,0,0.4)] transition-all duration-300 transform hover:-translate-y-1 w-full max-w-sm border border-[#e6b274]/50;
+  }
+  
+  .btn-secondary {
+    @apply bg-white/50 text-[#800000] border border-[#800000]/30 px-6 py-4 rounded-full font-sans font-bold flex items-center justify-center gap-2 shadow-sm hover:bg-white/70 transition-all duration-300 transform hover:-translate-y-1 w-full max-w-sm mt-4 backdrop-blur-md;
+  }
+}
