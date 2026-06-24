@@ -34,7 +34,7 @@ export default function PageOne() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.5, type: "spring", delay: 0.5 }}
-          className="absolute top-10 md:top-16 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center drop-shadow-[0_4px_10px_rgba(255,255,255,0.6)]"
+          className="absolute top-4 md:top-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center drop-shadow-[0_4px_10px_rgba(255,255,255,0.6)]"
         >
           <div className="w-28 h-28 md:w-36 md:h-36 rounded-full border-[1.5px] border-[#A86D33] flex items-center justify-center bg-white/20 backdrop-blur-sm">
             <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-[0.5px] border-[#cb8941] flex items-center justify-center bg-transparent">
