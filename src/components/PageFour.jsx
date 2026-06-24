@@ -6,7 +6,7 @@ export default function PageFour({ onRSVPClick }) {
 
   return (
     <section className="scroll-section w-full z-20">
-      <div className="w-full max-w-md mx-auto flex flex-col items-center justify-start min-h-screen text-center px-4 space-y-4 pt-1 pb-20">
+      <div className="w-full max-w-md mx-auto flex flex-col items-center justify-start min-h-screen text-center px-4 space-y-4 pt-1 pb-10">
         
         {/* Venue Card */}
         <div className="w-full px-5 py-6 rounded-[2rem] glass-card shadow-md flex flex-col items-center">
