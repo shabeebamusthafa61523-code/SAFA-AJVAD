@@ -36,9 +36,9 @@ export default function PageOne() {
           transition={{ duration: 1.5, type: "spring", delay: 0.5 }}
           className="absolute top-10 md:top-16 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center drop-shadow-[0_4px_10px_rgba(255,255,255,0.6)]"
         >
-          <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-[1.5px] border-[#A86D33] flex items-center justify-center bg-white/20 backdrop-blur-sm">
-            <div className="w-16 h-16 md:w-24 md:h-24 rounded-full border-[0.5px] border-[#cb8941] flex items-center justify-center bg-transparent">
-              <span className="font-cinzel text-3xl md:text-4xl text-[#800000] font-bold mt-1">F<span className="text-[#A86D33] text-2xl mx-1.5">&amp;</span>A</span>
+          <div className="w-28 h-28 md:w-36 md:h-36 rounded-full border-[1.5px] border-[#A86D33] flex items-center justify-center bg-white/20 backdrop-blur-sm">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border-[0.5px] border-[#cb8941] flex items-center justify-center bg-transparent">
+              <span className="font-cinzel text-5xl md:text-6xl text-[#800000] font-bold mt-1">F<span className="text-[#A86D33] text-4xl mx-1.5">&amp;</span>A</span>
             </div>
           </div>
         </motion.div>
@@ -47,8 +47,24 @@ export default function PageOne() {
           variants={container}
           initial="hidden" 
           whileInView="visible" 
-          className="flex flex-col items-center justify-center w-full pt-32 md:pt-48"
+          className="flex flex-col items-center justify-center w-full pt-20 md:pt-28"
         >
+          {/* Save The Date Text
+          <motion.span 
+            variants={itemLeft}
+            className="font-sans tracking-[0.4em] text-[#800000] text-xs md:text-sm uppercase font-bold drop-shadow-sm mb-2"
+          >
+            Save The Date
+          </motion.span> */}
+
+          {/* Join Text */}
+          {/* <motion.span 
+            variants={itemLeft}
+            className="font-sans tracking-[0.3em] text-[#A86D33] text-[10px] md:text-xs uppercase font-bold drop-shadow-sm mb-10"
+          >
+            Join us to the wedding of
+          </motion.span> */}
+
           {/* Bride */}
           <motion.h1 
             variants={itemLeft}

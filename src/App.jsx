@@ -1,19 +1,26 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import SplashScreen from './components/SplashScreen';
 import PageOne from './components/PageOne';
-import PageTwo from './components/PageTwo';
 import PageThree from './components/PageThree';
 import PageFour from './components/PageFour';
 import RSVPModal from './components/RSVPModal';
-import MusicPlayer from './components/MusicPlayer';
 import FlowerParticles from './components/FlowerParticles';
+import MusicPlayer from './components/MusicPlayer';
+
+import './App.css';
 
 function App() {
   const [isRSVPOpen, setIsRSVPOpen] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <div className="relative bg-[#F8F9F5]">
+    <div className="relative w-full h-[100dvh] overflow-hidden bg-[#F8F9F5]">
       
+      <AnimatePresence>
+        {!isOpened && <SplashScreen onOpen={() => setIsOpened(true)} />}
+      </AnimatePresence>
+
       {/* Background Layer */}
       <div className="fixed inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
         <motion.img 
@@ -30,17 +37,24 @@ function App() {
       <FlowerParticles />
       <MusicPlayer />
 
-
-
       {/* Main Scroll Container */}
-      <main className="scroll-container relative z-10">
-        <PageOne />
-        <PageTwo />
-        <PageThree />
-        <PageFour onRSVPClick={() => setIsRSVPOpen(true)} />
-      </main>
+      <AnimatePresence>
+        {isOpened && (
+          <motion.main 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1 } }}
+            className="scroll-container relative z-10"
+          >
+            <PageOne />
+            <PageThree />
+            <PageFour onRSVPClick={() => setIsRSVPOpen(true)} />
+          </motion.main>
+        )}
+      </AnimatePresence>
 
-      <RSVPModal isOpen={isRSVPOpen} onClose={() => setIsRSVPOpen(false)} />
+      <AnimatePresence>
+        {isRSVPOpen && <RSVPModal onClose={() => setIsRSVPOpen(false)} />}
+      </AnimatePresence>
     </div>
   );
 }
