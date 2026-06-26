@@ -85,21 +85,28 @@ export default function PageOne() {
           >
             Ajwad Sajvan
           </motion.h1>
+
+          {/* Scroll indicator directly below names */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
+            className="mt-12 md:mt-20 flex flex-col items-center z-30"
+          >
+            <motion.div
+               animate={{ y: [0, 10, 0] }}
+               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+               className="flex flex-col items-center"
+            >
+              <span className="text-[10px] uppercase tracking-[0.3em] text-[#A86D33] font-bold mb-2 bg-white/50 backdrop-blur-sm border border-[#cb8941]/30 px-5 py-2 rounded-full shadow-[0_4px_15px_rgba(168,109,51,0.2)]">Scroll to Explore</span>
+              <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6 mt-1 text-[#A86D33] drop-shadow-sm">
+                <path d="M6 10 L14 18 L22 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.div>
+          </motion.div>
         </motion.div>
 
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 flex flex-col items-center"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-gray-800 font-bold mb-2 glass-card px-4 py-1.5 rounded-full drop-shadow-sm">Scroll</span>
-        <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6">
-          <path d="M6 10 L14 18 L22 10" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </motion.div>
     </section>
   );
 }
