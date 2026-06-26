@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { Heart, ChevronDown } from 'lucide-react';
 
 export default function PageOne() {
   const container = {
@@ -49,22 +49,6 @@ export default function PageOne() {
           whileInView="visible" 
           className="flex flex-col items-center justify-center w-full pt-20 md:pt-28"
         >
-          {/* Save The Date Text
-          <motion.span 
-            variants={itemLeft}
-            className="font-sans tracking-[0.4em] text-[#800000] text-xs md:text-sm uppercase font-bold drop-shadow-sm mb-2"
-          >
-            Save The Date
-          </motion.span> */}
-
-          {/* Join Text */}
-          {/* <motion.span 
-            variants={itemLeft}
-            className="font-sans tracking-[0.3em] text-[#A86D33] text-[10px] md:text-xs uppercase font-bold drop-shadow-sm mb-10"
-          >
-            Join us to the wedding of
-          </motion.span> */}
-
           {/* Bride */}
           <motion.h1 
             variants={itemLeft}
@@ -91,17 +75,17 @@ export default function PageOne() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
-            className="mt-12 md:mt-20 flex flex-col items-center z-30"
+            className="mt-6 md:mt-10 flex flex-col items-center z-30 cursor-pointer"
+            onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
           >
             <motion.div
-               animate={{ y: [0, 10, 0] }}
-               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-               className="flex flex-col items-center"
+               animate={{ y: [0, 12, 0], opacity: [0.6, 1, 0.6] }}
+               transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+               className="flex flex-col items-center justify-center"
             >
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#A86D33] font-bold mb-2 bg-white/50 backdrop-blur-sm border border-[#cb8941]/30 px-5 py-2 rounded-full shadow-[0_4px_15px_rgba(168,109,51,0.2)]">Scroll to Explore</span>
-              <svg viewBox="0 0 28 28" fill="none" className="w-6 h-6 mt-1 text-[#A86D33] drop-shadow-sm">
-                <path d="M6 10 L14 18 L22 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <span className="font-sans text-[9px] uppercase tracking-[0.4em] text-[#A86D33] font-bold mb-1 drop-shadow-sm ml-1">Scroll</span>
+              <ChevronDown size={32} className="text-[#A86D33] drop-shadow-md -mb-4" strokeWidth={2} />
+              <ChevronDown size={32} className="text-[#cb8941] drop-shadow-md" strokeWidth={2} />
             </motion.div>
           </motion.div>
         </motion.div>
